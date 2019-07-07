@@ -1,22 +1,18 @@
 <template>
-    <v-card v-if="this.shipDetails != undefined" flat tile
+    <v-card v-if="this.shipDetails != undefined" flat tile dark
              > 
-          <v-img
-            :src= this.shipDetails.imageUrl
-            aspect-ratio="2.75"
-          ></v-img>
-  
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">{{ this.shipDetails.name }}</h3>
-              <div v-html="this.textDescription">   </div>
-            </div>
-          </v-card-title>
+ 
+          <v-card-title dark primary-title class="card-header-title text-md-center">            
+              <h3 class="headline mb-0 text-md-center" >{{ this.shipDetails.name }}</h3>             
+        
+          </v-card-title> 
+          <v-divider></v-divider>
+
+          <v-card-text>
+              <div class="text-md-left" v-html="this.textDescription">   </div>
+          </v-card-text>
         <v-divider></v-divider>
-          <v-card-actions>
-            <v-btn flat color="orange">Share</v-btn>
-            <v-btn flat color="orange">Explore</v-btn>
-          </v-card-actions>
+
         </v-card>
 </template>
 
@@ -38,10 +34,10 @@ export default {
     // a computed getter
         textDescription: function () {
             return `<p>Name:${this.shipDetails.name}</p>`+
-                    `<p>model:${this.shipDetails.model}</p>`+
-                    `<p>manufacturer:${this.shipDetails.manufacturer}</p>`+
-                    `<p>cost:${this.shipDetails.cost_in_credits}</p>`+
-                    `<p>starship class:${this.shipDetails.starship_class}</p>`
+                    `<p>Model:${this.shipDetails.model}</p>`+
+                    `<p>Manufacturer:${this.shipDetails.manufacturer}</p>`+
+                    `<p>Cost:${this.shipDetails.cost_in_credits}</p>`+
+                    `<p>Starship class:${this.shipDetails.starship_class}</p>`
         }
     }
 }
@@ -49,6 +45,14 @@ export default {
 
 </script>
 
-<style>
+<style  lang="scss">
+    .card-header-title{
+        text-align: center;
+        width: 100%;
+        background-color: darkslategrey;
+        h3{
+            width: 100%;
+        }
+    }
 
 </style>
